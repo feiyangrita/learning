@@ -7,7 +7,7 @@ public class TwoSum {
 	public static void main(String[] args) {
 		int sum[] = {1, 2 ,4};
 		int target = 5;
-		int result[] = new TwoSum().twoSum2(sum, target);
+		int result[] = new TwoSum().twoSum3(sum, target);
 		System.out.print(result[0]);
 		System.out.print(result[1]);
 	}
@@ -57,5 +57,21 @@ public class TwoSum {
 			}
 		}
 		return result;
+    }
+	
+	public int[] twoSum3(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (!map.containsKey(target - nums[i])) {
+                map.put(nums[i] , i);
+            } else {
+                // result[0] = i;
+                // result[1] = map.get(target - nums[i]);
+                return new int[]{i, map.get(target - nums[i])};
+            }
+        }
+        // return result;
+        return new int[]{};
     }
 }
